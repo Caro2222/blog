@@ -1,0 +1,25 @@
+
+<h2>Créer un article </h2>
+<form action="addPost.php" method="POST">
+    <select id="name" name="authorsId">
+        <option value="">choix de l'auteur</option>
+    <?php
+
+         foreach ($allAuthors as $key => $authors): ?>
+        <option value="<?=$authors["Id"] ?>"><?=(htmlspecialchars($authors["FirstName"]))   ?>
+                <?=(htmlspecialchars($authors["FirstName"]))  ?></option>
+        <?php endforeach ?>
+    </select>
+<p>Les categories :</p>
+    <?php foreach ($allCategories as $key => $categories): ?>
+    <input type="checkbox" id="categories" name="categories[]" value="<?= $categories["Id"] ?>">
+    <label for="categories" ><?= $categories["Name"] ?></label>
+
+    <?php endforeach ?>
+    <br>
+    <input type="text" placeholder="Titre" name="title" autocomplete="off">
+    <br>
+    <textarea  placeholder="Contenu" id="contenu" rows="10" cols="60" name="content" autocomplete="off"></textarea>
+    <br>
+   <input type="submit" value="sauver" >
+</form>

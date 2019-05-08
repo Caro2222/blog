@@ -1,0 +1,26 @@
+<p class="categorie"><?php foreach ($categories as $key => $categorie): ?>
+Categorie :  <?= $categorie['Name'] ?></p>
+<?php endforeach ?>
+<h2><?= $post["Title"] ?></h2>
+<p><?=$post["Content"] ?></p>
+<!--<a href="addComment.php">Ajouter un Commentaire</a>-->
+<p>ecrit le <?=(new DateTime($post['CreactionDate']))->format("d/m/Y"); ?>
+    par <?=$post["FirstName"] ?> <?=$post["LastName"] ?>
+</p>
+<form action="addComment.php ?>" method="POST">
+    <label for="NickName" >Votre nom </label><input name="NickName" type="text" ><br>
+
+    <label for="Comments" >Votre commentaire </label><textarea name="Comments" id="Comments"></textarea>
+    <input name="postId"  value="<?=$_GET['id']?>" hidden="hidden"  >
+    <input type="submit" name="send" value="Envoyer">
+</form>
+
+<div class="commentaire">
+    <ul>
+        <?php foreach ($comments as $comment):?>
+            <li><?= $comment["NickName"]?></li>
+            <li><?= $comment["Comments"]?></li>
+            <li><?= (new DateTime($comment["CreactionDate"]))->format("d/m/Y")?></li>
+        <?php endforeach ?>
+    </ul>
+</div>

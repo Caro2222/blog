@@ -1,0 +1,74 @@
+body {
+    background-color: #e8f0ff;
+    margin: auto;
+    color: #878787;
+
+}
+
+input[type="text"] {
+    margin: 1em 0;
+}
+
+
+input[type="submit"] {
+    margin: 1em 0 0 30em;
+
+}
+h1 {
+    padding-top: 1em;
+    text-align: center;
+    color: #878787;
+    font-family: 'Permanent Marker', cursive;
+}
+
+h2 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+li {
+   list-style: none;
+}
+
+header {
+    background: url(http://sfwallpaper.com/images/header-image-13.jpg)no-repeat;
+    background-size: cover;
+
+}
+ul {
+    border: 1px solid #c6ecfd;
+    margin: 2em 2em;
+}
+
+ header a {
+    text-decoration: none;
+    color: #c6ecfd;
+}
+
+ main a {
+     text-decoration: none;
+     color: #878787;
+ }
+
+nav a {
+    margin-left: 5em;
+}
+
+footer{
+    text-align: center;
+    margin-top: 5em;
+}
+
+main {
+    width: 90%;
+    margin:auto ;
+}
+
+.categorie {
+    text-align: right;
+}
+
+.modifier{
+    margin-left: 25%;
+}
+
+

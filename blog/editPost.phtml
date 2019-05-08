@@ -1,0 +1,36 @@
+<div class="modifier">
+<h2>Modifier un article </h2>
+<form action="editPost.php" method="POST">
+    <select id="name" name="authorsId">
+        <option value="0" <?php  if(! $post["Authors_Id"]): ?> selected="selected" <?php endif; ?> >choix de l'auteur</option>
+        <?php  foreach ($allAuthors as $authors): ?>
+            <option <?php  if($authors["Id"]==$post["Authors_Id"]){ echo('selected="selected"'); } ?> value="<?=$authors["Id"] ?>"><?=$authors["FirstName"]  ?>
+                <?=$authors["LastName"]  ?></option>
+        <?php endforeach ?>
+    </select>
+
+    <p>Les categories :</p>
+<!--    --><?php //foreach ($allCategories as $categories): ?>
+<!--        <input type="checkbox" id="cat---><?//= $categories["Id"] ?><!--" name="categories[]"-->
+<!--               --><?php //if(in_array($categories['Id'],$postCategories)){ echo('checked="checked"');} ?><!-- value="--><?//= $categories["Id"] ?><!--"  >-->
+<!--        <label for="cat---><?//= $categories["Id"] ?><!--" >--><?//= $categories["Name"] ?><!--</label>-->
+    <?php foreach ($postCategories as $categorie): ?>
+    <input type="checkbox" name="Categories[]" id="cat-<?=$categorie["Id"]?>"
+           <?php if( $categorie['checked']): ?>
+           checked="checked"
+        <?php endif ?> value="<?=$categorie["Id"] ?> ">
+    <label for="cat-<?=$categorie["Id"] ?>" ><?= $categorie["Name"] ?> </label>
+
+    <?php endforeach ?>
+
+    <br>
+    <input type="text" value="<?=$post['Title'] ?>" name="title" autocomplete="off">
+    <br>
+    <textarea id="contenu" rows="10" cols="60" name="content" autocomplete="off"><?=(htmlspecialchars($post['Content'] )) ?></textarea>
+    <br>
+    <input name="postId"  value="<?=$_GET['id']?>" hidden="hidden"  >
+    <input type="submit" value="modifier" >
+</form>
+</div>
+
+

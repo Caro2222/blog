@@ -1,0 +1,19 @@
+
+
+
+<h2>Accueil</h2>
+<?php foreach ($posts as $post): ?>
+    <ul>
+        <li><h2><a href="show.php?id=<?=$post["Id"]?>"><?=substr(htmlspecialchars($post['Title']),0,50)?></a></h2></li>
+            <li><?=substr(htmlspecialchars($post['Content']),0,200)?> </li>
+
+        <li>
+            <p>
+                ecrit le <?=(new DateTime($post['CreactionDate']))->format("d/m/Y"); ?>
+
+            </p>
+        </li>
+    </ul>
+<?php endforeach ?>
+
+

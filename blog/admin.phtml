@@ -1,0 +1,18 @@
+<h2>Admin</h2>
+<a href="addPost.php">Ajouter post</a>
+<?php foreach ($posts as $post): ?>
+    <ul id="post-<?=$post["Id"]?>">
+        <li><h2><a href="show.php?id=<?= $post["Id"]?>"><?=substr(htmlspecialchars($post['Title']),0,50)?></a></h2></li>
+        <li><?=substr(htmlspecialchars($post['Content']),0,200)?> </li>
+
+        <li>
+            <p>
+                ecrit le <?=(new DateTime($post['CreactionDate']))->format("d/m/Y"); ?>
+
+            </p>
+        </li>
+        <a href="editPost.php?id=<?=$post["Id"]?>">Modifier</a>
+        <a href="remove.php?id=<?=$post["Id"]?>">Suprimer</a>
+
+    </ul>
+<?php endforeach ?>
